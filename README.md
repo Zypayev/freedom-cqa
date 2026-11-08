@@ -1,5 +1,5 @@
 # CQA — Conversation Quality Analytics
-Ramazan Zypayev, Beibars Ybraykhan, Zhalgas
+Ramazan Zypayev, Beibars Ybraiakhan, Zhalgas Bolatbayev
 
 Прототип для хакатона Freedom Broker: автоматическая оценка работы оператора по настраиваемому чек-листу, ссылки на реплики-доказательства, апелляции с пересчётом итога, версии чек-листов и замер точности относительно эталона.
 
