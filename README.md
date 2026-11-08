@@ -7,10 +7,18 @@
 Нужен Python 3.11+.
 
 ```bash
-cp .env.example .env          # укажите ANTHROPIC_API_KEY и CQA_DATASET_URL
+cp .env.example .env          # укажите CQA_DATASET_URL; модель — см. «Модель и стоимость» (по умолчанию локальная Ollama)
 cd backend
 python -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/uvicorn app.main:app --port 8000
+```
+
+Windows (PowerShell):
+
+```powershell
+Copy-Item .env.example .env
+cd backend; python -m venv .venv; .\.venv\Scripts\pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --port 8000
 ```
 
 Откройте http://localhost:8000. При первом запуске создаётся база `data/cqa.sqlite3` и загружается чек-лист из PDF ([chat_quality_v1.json](backend/app/checklists/chat_quality_v1.json)).
@@ -58,11 +66,27 @@ cd backend && .venv/bin/python -m pytest -q
 
 ### Модель и стоимость
 
-По умолчанию используется `claude-opus-5-5` (Anthropic, $4 / $20 за 1M входных / выходных токенов), `effort=high`, структурированный вывод по JSON-схеме. Системный промпт с чек-листом кэшируется и одинаков для всех диалогов. Стоимость каждой оценки считается по фактическим токенам и показывается в карточке, в списке и в ходе пакетной оценки.
+**Используемая модель: локальная `qwen3:14b` через [Ollama](https://ollama.com), бесплатно ($0 за оценку).** Работает на RTX 4070 Super 12 ГБ целиком в видеопамяти: около 40 с на диалог при двух параллельных оценках, все 65 диалогов DEV — около 46 минут. Данные не покидают контур. Измерено: ~3,8–6,8 тыс. входных и ~1,3–1,5 тыс. выходных токенов на диалог.
 
-Ориентир до замера: около 6–9 тыс. входных и 3–6 тыс. выходных токенов на прогон, это примерно $0.08–0.15 за оценку при одном прогоне. При голосовании из N прогонов стоимость умножается на N. Точную цифру возьмите из журнала после прогона DEV.
+Настройка (`.env`):
 
-Локальная альтернатива: `CQA_PROVIDER=ollama` и `CQA_OLLAMA_MODEL=...`. Интерфейс тот же, данные не покидают контур, стоимость 0.
+```
+CQA_PROVIDER=ollama
+CQA_OLLAMA_MODEL=qwen3:14b
+OLLAMA_URL=http://localhost:11434
+CQA_OLLAMA_NUM_CTX=16384
+CQA_CONCURRENCY=2
+```
+
+```bash
+ollama pull qwen3:14b
+# чтобы 14B с контекстом 16k поместилась в 12 ГБ:
+OLLAMA_FLASH_ATTENTION=1 OLLAMA_KV_CACHE_TYPE=q8_0 ollama serve
+```
+
+Нужна видеокарта NVIDIA с ~12 ГБ памяти; на процессоре работает, но очень медленно. Без видеокарты можно взять `qwen3:8b`.
+
+**Облачная альтернатива:** `CQA_PROVIDER=anthropic`, `ANTHROPIC_API_KEY=...`, `CQA_MODEL=claude-opus-5-5` ($4 / $20 за 1M входных / выходных токенов, `effort=high`). Системный промпт с чек-листом кэшируется. Ориентир: $0.08–0.15 за оценку при одном прогоне, при голосовании из N прогонов — ×N. Стоимость каждой оценки считается по фактическим токенам и показывается в карточке, в списке и в ходе пакетной оценки.
 
 ## Структура
 

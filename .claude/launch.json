@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "cqa",
-      "runtimeExecutable": "/bin/sh",
-      "runtimeArgs": ["-c", "cd backend && .venv/bin/uvicorn app.main:app --port 8000"],
+      "runtimeExecutable": "backend\\.venv\\Scripts\\python.exe",
+      "runtimeArgs": ["-m", "uvicorn", "app.main:app", "--app-dir", "backend", "--port", "8000"],
       "port": 8000
     }
   ]

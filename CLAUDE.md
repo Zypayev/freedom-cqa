@@ -20,6 +20,13 @@ cd backend && .venv/bin/python -m pytest -q                                     
 cd backend && .venv/bin/uvicorn app.main:app --port 8000                          # сервер + интерфейс
 ```
 
+Windows (PowerShell; Python 3.12 стоит в `%LOCALAPPDATA%\Programs\Python\Python312`):
+
+```powershell
+cd backend; .\.venv\Scripts\python.exe -m pytest -q
+cd backend; .\.venv\Scripts\python.exe -m uvicorn app.main:app --port 8000
+```
+
 ## Структура
 
 - `backend/app/` — API (`main.py`), оценщик (`evaluator.py`), промпт (`prompt.py`), факты кодом (`facts.py`), баллы (`scoring.py`), LLM-адаптеры (`llm.py`), бизнес-логика (`services.py`), SQLite (`db.py`).

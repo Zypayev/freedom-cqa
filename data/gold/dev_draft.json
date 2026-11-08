@@ -1,0 +1,46 @@
+{
+  "slug": "chat-quality",
+  "status": "draft: Claude Code, 2026-11-07, требует проверки командой",
+  "conventions": {
+    "needs": "yes — оператор уточнил недостающее (или верно учёл сказанное клиентом при наличии неясности); na — запрос был полным, уточнять было нечего; no — не уточнил нужное или переспросил уже сообщённое.",
+    "closing": "РЕШЕНО командой 2026-11-07: строго. Строго по PDF: прощание + (итог/следующий шаг или предложение помощи). Голое «До свидания»/«Bye»/«Сау болыңыз» или «Пожалуйста, хорошего вечера» — no. Оператор закрыл чат без прощания — no. Клиент ушёл/повесил трубку — na.",
+    "gross_errors": "Раскрытие данных счёта (ограничение на вывод) без идентификации считаю раскрытием конфиденциальной информации — yes. СПОРНО, проверить."
+  },
+  "labels": {
+    "p1-ru-001": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "10", "closing": "no", "gross_errors": "no"},
+    "p1-ru-005": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "4", "closing": "yes", "gross_errors": "no"},
+    "p1-ru-009": {"greeting": "yes", "needs": "yes", "identification": "no", "consultation": "10", "empathy": "no", "dialog_management": "4", "closing": "yes", "gross_errors": "yes"},
+    "p1-ru-013": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "10", "closing": "yes", "gross_errors": "no"},
+    "p1-ru-016": {"greeting": "yes", "needs": "no", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "7", "closing": "no", "gross_errors": "no"},
+    "p1-ru-018": {"greeting": "yes", "needs": "no", "identification": "na", "consultation": "0", "empathy": "no", "dialog_management": "0", "closing": "no", "gross_errors": "no"},
+    "p1-ru-022": {"greeting": "yes", "needs": "no", "identification": "na", "consultation": "0", "empathy": "no", "dialog_management": "10", "closing": "no", "gross_errors": "yes"},
+    "p1-ru-023": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "10", "closing": "no", "gross_errors": "yes"},
+    "p1-ru-025": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "na", "empathy": "yes", "dialog_management": "10", "closing": "na", "gross_errors": "no"},
+    "p1-ru-026": {"greeting": "yes", "needs": "no", "identification": "na", "consultation": "0", "empathy": "no", "dialog_management": "4", "closing": "no", "gross_errors": "no"},
+    "p1-ru-028": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "10", "closing": "no", "gross_errors": "no"},
+    "p1-ru-029": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "20", "empathy": "no", "dialog_management": "7", "closing": "no", "gross_errors": "yes"},
+    "p1-en-003": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "10", "closing": "no", "gross_errors": "no"},
+    "p1-en-007": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "10", "empathy": "yes", "dialog_management": "10", "closing": "no", "gross_errors": "no"},
+    "p1-en-010": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "10", "closing": "no", "gross_errors": "no"},
+    "p1-en-013": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "10", "closing": "no", "gross_errors": "yes"},
+    "p1-en-014": {"greeting": "yes", "needs": "no", "identification": "no", "consultation": "10", "empathy": "no", "dialog_management": "7", "closing": "no", "gross_errors": "yes"},
+    "p1-en-015": {"greeting": "no", "needs": "no", "identification": "na", "consultation": "20", "empathy": "no", "dialog_management": "7", "closing": "no", "gross_errors": "no"},
+    "p1-kz-003": {"greeting": "yes", "needs": "yes", "identification": "yes", "consultation": "20", "empathy": "yes", "dialog_management": "10", "closing": "yes", "gross_errors": "no"},
+    "p1-kz-006": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "10", "closing": "no", "gross_errors": "no"},
+    "p1-kz-008": {"greeting": "no", "needs": "no", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "7", "closing": "no", "gross_errors": "no"},
+    "p1-kz-010": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "10", "closing": "no", "gross_errors": "no"},
+    "p1-kz-012": {"greeting": "yes", "needs": "yes", "identification": "na", "consultation": "20", "empathy": "yes", "dialog_management": "10", "closing": "yes", "gross_errors": "no"},
+    "p1-kz-015": {"greeting": "yes", "needs": "no", "identification": "no", "consultation": "10", "empathy": "no", "dialog_management": "10", "closing": "yes", "gross_errors": "yes"},
+    "p4-ru-001": {"greeting": "yes", "needs": "na", "identification": "na", "consultation": "20", "empathy": "no", "dialog_management": "7", "closing": "na", "gross_errors": "no"},
+    "p4-ru-003": {"greeting": "yes", "needs": "yes", "identification": "yes", "consultation": "20", "empathy": "yes", "dialog_management": "7", "closing": "na", "gross_errors": "no"}
+  },
+  "doubts": {
+    "closing": "Главный вопрос к команде: засчитывать ли вежливое прощание без итога («Пожалуйста. Хорошего вечера!», «Thanks for reaching out, and goodbye!», «Көмегім тигеніне қуаныштымын. Сау болыңыз!»). Сейчас — no. Затронуты ru-001, ru-028, en-003, en-010, kz-006.",
+    "needs": "na против yes, когда оператор сразу дал верный ответ без уточнений (ru-001, ru-005, ru-013, ru-028, en-003, en-010, kz-006, kz-010). На итог не влияет (оба дают полный вклад), но влияет на совпадение по критерию.",
+    "gross_errors": "ru-009, en-014, kz-015: оператор сообщил об ограничении на счёте без идентификации. Отмечено yes как раскрытие конфиденциальной информации.",
+    "p1-ru-018": "dialog_management 0 (противоречие «точно биржа» → «тогда не знаю») или 4.",
+    "p1-ru-022": "dialog_management 10 — реплики формально ясные, нарушение учтено в gross_errors.",
+    "p1-en-015": "empathy no — без приветствия, сухое «Bye.», не признал свою ошибку.",
+    "p4-ru-003": "closing na — клиент положил трубку сразу после «спасибо», оператор не успел попрощаться; альтернативно no."
+  }
+}
